@@ -16,7 +16,7 @@ class Person {
     }
     greet = () => console.log(`Hola, ${this.name}`)
 }
-const PERSONA1 = new Person("Lucia")
+const PERSONA1 = new Person("Lucía")
 
 PERSONA1.greet()
 
@@ -34,7 +34,7 @@ const saludar = () => console.log('Hola! després de 3 segons')
 setTimeout(saludar, 3000)
 
 
-//---TERNARY---
+//---TERNARY OPERATOR---
 
 //Ex 1
 const potConduir = (edat) => edat >= 18 ? "Pots conduir" : "No pots conduir"
@@ -65,3 +65,40 @@ const parOimpar = (arrayNumeros) => {
 }
 
 parOimpar([1, 2, 3, 4])
+
+
+//---CALLBACKS---
+
+//Ex 1
+const processar = (numero, callback) => {
+    callback(numero)
+}
+processar(1, (result) => console.log(`El numero del callback és ${result}`))
+
+//Ex 2
+const calculadora = (numero1, numero2, callback) => {
+    callback(numero1 + numero2)
+}
+
+calculadora(2, 3, (resultatSuma) => console.log(`El resultat de la suma és ${resultatSuma}`))
+
+//Ex 3
+const esperarIsaludar = (nom, callback) => {
+    setTimeout(() => callback(nom), 2000)
+}
+esperarIsaludar("Àlex", (resultatEsperarIsaludar) => console.log(`Hola, ${resultatEsperarIsaludar} (després 2 segons)`))
+
+//Ex 4
+const processarElements = (array, callback) => array.forEach(callback)
+const mostrarElements = elements => console.log(`Processar: ${elements}`)
+
+processarElements(["Element 1", "Element 2", "Element 3"], mostrarElements)
+
+
+//Ex 5
+const processarCadena = (arrayStrings, callback) => {
+    const stringMajuscules = arrayStrings.map(string => string.toUpperCase())
+    callback(stringMajuscules)
+}
+
+processarCadena(["hola", "adeu", "fins després"], (resultatStringMajuscula) => console.log(resultatStringMajuscula))
