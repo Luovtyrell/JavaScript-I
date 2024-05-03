@@ -102,3 +102,67 @@ const processarCadena = (arrayStrings, callback) => {
 }
 
 processarCadena(["hola", "adeu", "fins després"], (resultatStringMajuscula) => console.log(resultatStringMajuscula))
+
+
+//---REST & SPREAD OPERATORS---
+
+//Ex 1 
+const array1 = [1, 2, 3, 4, 5, "Conill", "Granota"]
+const array2 = [6, 7, 8, 9, "Gat", "Gos"]
+
+const newArray = [...array1, ...array2]
+
+console.log(newArray)
+
+//Ex 2
+const suma = (...numeros) => numeros.reduce((total, numero) => total + numero, 0)
+
+console.log(suma(1, 2, 3, 4, 5, 6, 7))
+
+//Ex 3
+class Persona {
+    constructor(nom, edat) {
+        this.nom = nom,
+            this.edat = edat
+    }
+}
+const Objecte1 = new Persona("Lucía", 31)
+const Objecte2 = { ...Objecte1 }
+
+Objecte2.nom = "Laura"
+
+console.log(Objecte1)
+
+//Ex 4
+const arrayElements = [1, "Pera", 2, 3, 4, "Mandarina", "Poma", 23]
+
+const [primerNumero, primeraFruita, ...restElements] = arrayElements
+
+const primerElementArray = primerNumero
+const segonElementArray = primeraFruita
+const restaElementsArray = restElements
+
+console.log(primerElementArray, segonElementArray, restaElementsArray)
+
+//Ex 5
+const laMevaFuncioSpread = (a, b, c) => console.log("paràmetre a", a, "paràmetre b", b, "pàrametre c", c)
+
+const arrayTresElements = ["Casa", "Cotxe", "Tren"]
+
+laMevaFuncioSpread(...arrayTresElements)
+
+//Ex 6 
+class Animal {
+    constructor (nom, edat, menjarPreferit){
+        this.nom = nom,
+        this.edat = edat, 
+        this.menjarPreferit = menjarPreferit
+    }
+}
+
+const Conill = new Animal("Totoro", 3, "Dent de Lleó")
+const Gat = new Animal("Yami", 4, "Salmó")
+
+const conillGat = {...Conill, ...Gat}
+
+console.log(conillGat)
