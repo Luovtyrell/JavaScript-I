@@ -153,16 +153,68 @@ laMevaFuncioSpread(...arrayTresElements)
 
 //Ex 6 
 class Animal {
-    constructor (nom, edat, menjarPreferit){
+    constructor(nom, edat, menjarPreferit) {
         this.nom = nom,
-        this.edat = edat, 
-        this.menjarPreferit = menjarPreferit
+            this.edat = edat,
+            this.menjarPreferit = menjarPreferit
     }
 }
 
 const Conill = new Animal("Totoro", 3, "Dent de Lleó")
 const Gat = new Animal("Yami", 4, "Salmó")
 
-const conillGat = {...Conill, ...Gat}
+const conillGat = { ...Conill, ...Gat }
 
 console.log(conillGat)
+
+
+//---ARRAY TRANSFORMATIONS---
+
+//Ex 1
+const arrayNumerosMap = [1, 2, 3, 4]
+const newArrayAlQuadrat = arrayNumerosMap.map(numero => numero ** 2)
+console.log(newArrayAlQuadrat)
+
+//Ex 2
+const arrayNumerosFilter = [1, 2, 3, 4]
+const newArrayNumerosFilter = arrayNumerosFilter.filter(numero => numero % 2 === 0)
+console.log(newArrayNumerosFilter)
+
+//Ex 3
+const arrayNumerosFind = [1, 10, 8, 11]
+const newArrayNumerosFind = arrayNumerosFind.find(numero => numero > 10)
+console.log(newArrayNumerosFind)
+
+//Ex 4
+const arrayNumerosReduce = [13, 7, 8, 21]
+const newArrayNumerosReduce = arrayNumerosReduce.reduce((accumulador, numero) => accumulador + numero)
+console.log(newArrayNumerosReduce)
+
+//Ex 5
+const arrayMethods = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9]
+
+// //Filtra els nombres majors o iguals a 10
+// const arrayMethodsMajorsOiguals10 = arrayMethods.filter(numero => numero > 10 || numero === 10)
+// console.log(arrayMethodsMajorsOiguals10)
+
+// //Multiplica cada nombre filtrat per 2
+// const arrayFiltratMultiplicat = arrayMethodsMajorsOiguals10.map(numero => numero * 2)
+// console.log(arrayFiltratMultiplicat)
+
+// //Calcula la suma dels nombres filtrats i multiplicats per 2
+// const arrayFiltratSuma = arrayFiltratMultiplicat.reduce((accumulador, numero)=> accumulador + numero)
+// console.log(arrayFiltratSuma)
+
+//Crea la funció en una sola línea i retorna el resultat de la suma:
+const sumaMethods = (arrayMethods) => arrayMethods.filter(numero => numero > 10 || numero === 10).map(numero => numero * 2).reduce((accumulador, numero) => accumulador + numero)
+
+console.log(sumaMethods(arrayMethods))
+
+//Ex 6
+arraySomeEvery = [11, 12, 13, 14]
+
+const arraySomeMajors10 = arraySomeEvery.some(numero => numero >= 10)
+console.log(arraySomeMajors10)
+
+const arrayEveryMajors10 = arraySomeEvery.every(numero => numero >= 10)
+console.log(arrayEveryMajors10)
