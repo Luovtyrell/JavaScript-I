@@ -258,3 +258,71 @@ let nomsEstudiants = ['Anna', 'Bernat', 'Clara']
 for (let nom of nomsEstudiants.entries()) {
     console.log(nom)
 }
+
+
+//---PROMISES & ASYNC AWAIT---
+
+//Ex 1
+const promise = new Promise(function (resolve) {
+    setTimeout(() => {
+        resolve('Hola món! (promesa després de 2 segons)')
+    }, 2000)
+}
+)
+
+//Ex 2
+promise.then(
+    function (result) { console.log('Hola, món! (amb .then)') }
+)
+
+//Ex 3
+let input = 'Hola'
+const promise2 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        if (input === 'Hola') {
+            resolve(console.log('Hola, món!'))
+        } else {
+            reject(console.log('Error'))
+        }
+    }, 2000)
+})
+
+//Ex 4
+const promiseAsync = async () => {
+    const resposta = await promise
+    console.log(resposta)
+}
+promiseAsync()
+
+//Ex 5
+const promiseAsync2 = async () => {
+    try {
+        const resposta = await promise
+        console.log(resposta)
+    } catch (error) {
+        console.log('Error:', error)
+    }
+}
+
+promiseAsync2()
+
+//Ex 6
+const promesa1 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve('Primera promesa resolta després de 2 segons')
+    }, 2000)
+})
+
+const promesa2 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve('Segona promesa resolta després de 3 segons')
+    }, 3000)
+})
+
+Promise.all([promesa1, promesa2])
+    .then((resultats) => {
+        console.log('Promeses resoltes correctament:', resultats)
+    })
+    .catch((error) => {
+        console.error('Error', error);
+    })
