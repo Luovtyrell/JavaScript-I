@@ -211,10 +211,50 @@ const sumaMethods = (arrayMethods) => arrayMethods.filter(numero => numero > 10 
 console.log(sumaMethods(arrayMethods))
 
 //Ex 6
-arraySomeEvery = [11, 12, 13, 14]
+const arraySomeEvery = [11, 12, 13, 14]
 
 const arraySomeMajors10 = arraySomeEvery.some(numero => numero >= 10)
 console.log(arraySomeMajors10)
 
 const arrayEveryMajors10 = arraySomeEvery.every(numero => numero >= 10)
 console.log(arrayEveryMajors10)
+
+
+//---ARRAY LOOPS---
+
+//Ex 1
+let noms = ['Anna', 'Bernat', 'Clara']
+
+noms.forEach((nom) => console.log(nom))
+
+//Ex 2
+for (let nom of noms) { console.log(nom) }
+
+//Ex 3
+let numeros = [1, 2, 3, 4, 5, 6]
+
+const numerosParells = numeros.filter(numero => numero % 2 === 0)
+console.log(numerosParells)
+
+//Ex 4
+let obj = { nom: 'Ona', edat: 25, ciutat: 'Barcelona' }
+
+for (let propietat in obj) {
+    console.log(`${propietat}: ${obj[propietat]}`)
+}
+
+//Ex 5
+let numerosArray = [1, 2, 3, 4, 5, 6]
+
+for (let numero of numerosArray) {
+    console.log(numero)
+    if (numero === 5) {
+        break
+    }
+}
+
+//Ex 6
+let nomsEstudiants = ['Anna', 'Bernat', 'Clara']
+for (let nom of nomsEstudiants.entries()) {
+    console.log(nom)
+}
